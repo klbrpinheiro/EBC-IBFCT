@@ -179,11 +179,11 @@ document.querySelectorAll('textarea').forEach(textarea => {
     const questionNumber = textarea.dataset.number;
     const questionText = questions[questionId];
 
-    if (answer) {
-      const existingAnswerIndex = allAnswers.findIndex(
-        a => a.day === day && a.question_number === questionNumber
-      );
+    const existingAnswerIndex = allAnswers.findIndex(
+      a => a.day === day && a.question_number === questionNumber
+    );
 
+    if (answer) {
       if (existingAnswerIndex !== -1) {
         allAnswers[existingAnswerIndex].answer = answer;
       } else {
@@ -195,10 +195,12 @@ document.querySelectorAll('textarea').forEach(textarea => {
           created_at: new Date().toISOString()
         });
       }
-
-      saveAnswersToLocalStorage();
-      renderSummary();
+    } else if (existingAnswerIndex !== -1) {
+      allAnswers.splice(existingAnswerIndex, 1);
     }
+
+    saveAnswersToLocalStorage();
+    renderSummary();
   });
 });
 

@@ -46,7 +46,7 @@ html, body {
   text-align: center;
   font-weight: 600;
   color: #667eea;
-  font-size: 14px;
+  font-size: calc(14px * var(--font-size-multiplier));
 }
 
 .font-size-btn {
@@ -56,7 +56,7 @@ html, body {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: calc(16px * var(--font-size-multiplier));
   font-weight: bold;
   transition: all 0.3s ease;
   width: 40px;
@@ -129,7 +129,7 @@ nav {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: calc(16px * var(--font-size-multiplier));
   font-weight: 600;
   transition: all 0.3s ease;
   flex: 1;
@@ -194,7 +194,7 @@ main {
 
 textarea {
   width: 100%;
-  min-height: 120px;
+  min-height: calc(120px * var(--font-size-multiplier));
   padding: 15px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
@@ -316,6 +316,7 @@ footer {
   display: none;
   z-index: 1000;
   animation: slideIn 0.3s ease;
+  font-size: calc(14px * var(--font-size-multiplier));
 }
 
 .toast.show {

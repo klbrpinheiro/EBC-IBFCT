@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Bíblicos em Comunidade</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 800px;
+        width: 100%;
+        padding: 60px 40px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #2d3748;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        color: #718096;
+        font-size: 1.2em;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      .studies-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .study-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-decoration: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: block;
+      }
+
+      .study-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      }
+
+      .study-card h2 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+
+      .study-card p {
+        font-size: 1.1em;
+        opacity: 0.9;
+      }
+
+      .verse {
+        background: #f7fafc;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin: 40px 0;
+        border-radius: 8px;
+        color: #2d3748;
+        font-style: italic;
+        text-align: left;
+      }
+
+      .footer {
+        margin-top: 50px;
+        color: white;
+        font-size: 0.9em;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 40px 20px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        .study-card h2 {
+          font-size: 1.4em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📖 Estudos Bíblicos em Comunidade</h1>
+      <p class="subtitle">Mergulhe nas Escrituras e fortaleça sua fé</p>
+
+      <div class="verse">
+        <strong>Palavra de Vida:</strong><br>
+        "Toda a Escritura é inspirada por Deus e útil para o ensino, para a repreensão, para a correção e para a instrução na justiça" — 2 Timóteo 3:16
+      </div>
+
+      <div class="studies-list">
+        <a href="Tiago_Licao3/Licao3.html" class="study-card">
+          <h2>Tiago - Lição 3</h2>
+          <p>Fé e Sociedade</p>
+          <p style="margin-top: 10px; font-size: 0.95em;">
+            "Assim como o corpo sem espírito está morto, também a fé sem obras está morta." — Tiago 2:26
+          </p>
+        </a>
+      </div>
+
+      <div class="footer">
+        <p>© 2026 Estudos Bíblicos em Comunidade</p>
+      </div>
+    </div>
+  </body>
+</html>

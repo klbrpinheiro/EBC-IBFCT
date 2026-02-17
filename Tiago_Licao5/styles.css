@@ -33,6 +33,31 @@ html, body {
   margin: 0 auto;
 }
 
+.back-link-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #edf2f7;
+  color: #4a5568;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: calc(14px * var(--font-size-multiplier));
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  background: #e2e8f0;
+  color: #2d3748;
+}
+
 .font-controls {
   display: flex;
   gap: 10px;
@@ -198,7 +223,8 @@ textarea {
   padding: 15px;
   border: 2px solid #e2e8f0;
   border-radius: 8px;
-  font-size: calc(15px * var(--font-size-multiplier));
+  font-size: calc(15px * var(--font-size-multiplier)) !important;
+  line-height: calc(1.6 * var(--font-size-multiplier));
   font-family: 'Georgia', 'Times New Roman', serif;
   resize: vertical;
   transition: border-color 0.3s ease;

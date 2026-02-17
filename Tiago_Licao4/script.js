@@ -1,7 +1,7 @@
 const defaultConfig = {
-  study_title: "Estudos Bíblicos em Comunidade - Tiago Lição 3",
-  study_subtitle: "Fé e Sociedade",
-  memory_verse: '"Assim como o corpo sem espírito está morto, também a fé sem obras está morta." Tiago 2:26.',
+  study_title: "Estudos Bíblicos em Comunidade - Tiago Lição 4",
+  study_subtitle: "Fé e Fala",
+  memory_verse: '"Todos tropeçamos de muitas maneiras. Se alguém não tropeça no falar, tal homem é perfeito, sendo também capaz de dominar todo o seu corpo." Tiago 3:2.',
   footer_text: "Seus estudos bíblicos são salvos automaticamente 📖✨",
   background_color: "#667eea",
   surface_color: "#ffffff",
@@ -10,8 +10,8 @@ const defaultConfig = {
   secondary_action_color: "#764ba2"
 };
 
-const STORAGE_KEY = 'tiago_licao3_answers';
-const FONT_SIZE_KEY = 'tiago_licao3_font_size';
+const STORAGE_KEY = 'tiago_licao4_answers';
+const FONT_SIZE_KEY = 'tiago_licao4_font_size';
 let allAnswers = [];
 let currentFontSizeMultiplier = 1;
 const FONT_SIZE_STEP = 0.1;
@@ -19,24 +19,22 @@ const FONT_SIZE_MIN = 0.7;
 const FONT_SIZE_MAX = 2.0;
 
 const questions = {
-  "q1-1": "Que comportamento Tiago advertiu contra?",
-  "q1-2": "Qual exemplo Tiago usou para ajudar seus leitores a reconhecer esse tipo de comportamento?",
-  "q1-3": "Além dos ricos e poderosos, quem mais poderia receber atenção especial entre as reuniões de cristãos hoje? Como mostrar favoritismo pode trazer problemas para o povo de Deus?",
-  "q2-4": "De acordo com Tiago, qual é a 'lei real' para relacionamentos?",
-  "q2-5": "Como você acha que favorecer um grupo de pessoas ao em vez de outro grupo viola a lei real?",
-  "q2-6": "Tiago nos exortou a mostrar misericórdia em vez de julgamento (2:13). Quais são algumas maneiras que você já observou as pessoas mostrando misericórdia para os outros?",
-  "q3-7": "Qual é o valor da fé que não é acompanhada por ações?",
-  "q3-8": "Leia Tiago 2:17 juntamente com as palavras de Paulo em Romanos 3:28: 'Pois sustentamos que o homem é justificado pela fé, independente da obediência à Lei'. Ambas as afirmações são a Palavra de Deus e são verdadeiras. Como você explicaria como eles se relacionam?",
-  "q3-9": "Que exemplo Tiago deu para provar que a fé sem as obras é morta? Como esse exemplo esclarece o que ele quis dizer?",
-  "q4-10": "O que a disposição de Abraão em obedecer provou sobre sua fé?",
-  "q4-11": "Por que Tiago disse que Abraão era o amigo de Deus? O que a confiança tem a ver com amizade?",
-  "q4-12": "Por que você acha que Deus valoriza nossa confiança nEle? Como você pode aprofundar sua amizade com Deus?",
-  "q5-13": "De acordo com Tiago 2:25, como as ações de Raabe provaram sua fé?",
-  "q5-14": "A que Tiago comparou a fé sem obras em 2:26?",
-  "q5-15": "Tiago falou sobre favoritismo, julgamento, fé e boas obras. Onde esta lição te desafiou mais? Por quê?",
-  "q6-16": "Como você pode aplicar o ensinamento sobre imparcialidade e amor ao próximo em sua vida diária? Cite exemplos práticos.",
-  "q6-17": "Reflita sobre a 'lei real' de amar o próximo. De que forma você tem demonstrado amor e misericórdia aos que estão ao seu redor?",
-  "q6-18": "Como sua fé tem se manifestado em ações concretas? Que oportunidades Deus tem colocado em seu caminho para demonstrar compaixão e misericórdia?",
+  "q1-1": "Que aviso Tiago deu às pessoas que querem ser mestres? Por que ensinar a Palavra de Deus é uma responsabilidade tão séria?",
+  "q1-2": "Que maneira específica de tropeçar Tiago advertiu? Por que isso é especialmente importante para os mestres estarem cientes?",
+  "q1-3": "Muitas vezes pensamos nos mestres como pessoas que discursam diante de um grupo. De que outras maneiras as pessoas ensinam umas às outras? De qual maneira você é mestre?",
+  "q2-4": "Quais imagens Tiago usou para descrever a língua? Para você, qual é mais significativa? Por quê?",
+  "q2-5": "Provérbios 18:21 diz que tanto “a língua tem poder sobre a vida e sobre a morte”. Quais são alguns exemplos de como podemos usar nossas palavras para produzir a morte?",
+  "q2-6": "Como podemos usar nossas palavras para produzir vida?",
+  "q3-7": "Quais contradições Tiago apontou nesses versículos?",
+  "q3-8": "O que você acha que Tiago quis dizer quando disse que uma língua descontrolada é \"incontrolável\" (versículo 8)?",
+  "q3-9": "Quais são algumas maneiras de “bendizemos nosso Senhor e Pai” com nossas palavras?",
+  "q3-10": "Quais são algumas maneiras de abençoar as pessoas com nossas palavras?",
+  "q4-11": "De acordo com Tiago, quais qualidades estão presentes em uma pessoa sábia?",
+  "q4-12": "Quais atitudes estão presentes no coração de uma pessoa imprudente?",
+  "q4-13": "Quais são alguns resultados dessa sabedoria \"não espiritual\" (3:15-16)?",
+  "q5-14": "Como Tiago descreveu a sabedoria que vem de Deus?",
+  "q5-15": "Qual é a colheita dessa sabedoria? Como esta colheita é diferente da colheita que Tiago descreveu em 3:16?",
+  "q5-16": "Qual das qualidades em 3:17 você mais gostaria de ver Deus desenvolver em sua vida? Como viver de acordo com essa qualidade resultaria em uma colheita de paz?",
   "q6-19": "Prepare-se para compartilhar com seu grupo: Qual foi o maior desafio desta lição para você? O que Deus tem ensinado através do estudo de Tiago 2?"
 };
 

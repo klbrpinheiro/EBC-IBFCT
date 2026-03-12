@@ -28,21 +28,6 @@ function initFontSize() {
   }
 }
 
-document.querySelectorAll('.nav-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const view = btn.dataset.view;
-
-    document.querySelectorAll('.nav-btn').forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    document.querySelectorAll('.day-section').forEach((section) => {
-      section.classList.remove('active');
-    });
-
-    document.getElementById(view).classList.add('active');
-  });
-});
-
 document.getElementById('decrease-font').addEventListener('click', () => {
   updateFontSize(currentFontSizeMultiplier - FONT_SIZE_STEP);
 });

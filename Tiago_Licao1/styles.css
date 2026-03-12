@@ -262,6 +262,7 @@ textarea:focus {
   color: #2d3748;
   line-height: 1.6;
   font-size: calc(15px * var(--font-size-multiplier));
+  text-align: justify;
 }
 
 .summary-section {

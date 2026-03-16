@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipenses</title>
+    <style>
+      :root {
+        --bg: #f4f6fb;
+        --card: #ffffff;
+        --line: #d9deea;
+        --text: #1f2937;
+        --primary: #2947a9;
+        --accent: #f3f6ff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+        color: var(--text);
+        counter-reset: folha;
+      }
+      .container { max-width: 980px; margin: 0 auto; padding: 24px; }
+      .page {
+        --page-pad-top: 18px;
+        --page-pad-x: 18px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 14px;
+        position: relative;
+        counter-increment: folha;
+      }
+      .page::before {
+        content: "P\00E1gina " counter(folha);
+        display: block;
+        margin: 0 0 0.35cm;
+        color: var(--primary);
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #c7cfe3;
+        text-align: right;
+      }
+      .page > h2 {
+        display: none;
+      }
+      .lesson-title {
+        margin: 10px 0 12px;
+        padding: 10px 12px;
+        border-left: 4px solid #1d4ed8;
+        background: var(--accent);
+        border-radius: 6px;
+        font-size: 1.2rem;
+      }
+      .day-title, .memory-title, .focus-title, .inline-section-title {
+        margin: 12px 0 8px;
+        color: #1e40af;
+        font-size: 1.05rem;
+      }
+      p { margin: 0 0 10px; line-height: 1.62; font-size: 1.25em; }
+      .question {
+        margin-top: 12px;
+        margin-bottom: 4px;
+        font-weight: 700;
+        color: #1f2937;
+      }
+      .answer-space {
+        height: 74px;
+        margin-bottom: 12px;
+        border-bottom: 1px dashed #c7cfe3;
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 23px,
+          #c7cfe3 23px,
+          #c7cfe3 24px
+        );
+      }
+      .page-footer {
+        margin-top: 14px;
+        font-size: 0.72em;
+        line-height: 1.3;
+        color: #6b7280;
+        text-align: center;
+      }
+      .footer-size {
+        font-size: 0.82em;
+        text-align: center;
+        border: 1px solid #c7cfe3;
+        border-radius: 6px;
+        padding: 8px 10px;
+        margin: 8px auto 10px;
+        max-width: 92%;
+        background: #f8fafc;
+      }
+      @page { size: A4; margin: 0; }
+      @media screen and (min-width: 900px) {
+        .container { max-width: calc(210mm + 48px); }
+        .page {
+          width: 210mm;
+          min-height: 297mm;
+          margin: 0 auto 14px;
+          --page-pad-top: 0.55cm;
+          --page-pad-x: 1.1cm;
+          padding-top: 0.55cm;
+          padding-bottom: 0.7cm;
+          padding-left: 1.1cm;
+          padding-right: 1.1cm;
+        }
+        p {
+          font-size: 0.98em;
+          line-height: 1.38;
+        }
+        h1 { margin: 0 0 8px; font-size: 1.35em; line-height: 1.2; }
+        h4 { margin: 8px 0 6px; }
+        .question {
+          font-size: 0.95em;
+          line-height: 1.3;
+        }
+        .answer-space {
+          height: 56px;
+        }
+      }
+      @media print {
+        body { background: #fff; color: #000; }
+        .container { max-width: none; margin: 0; padding: 0; }
+        p {
+          font-size: 0.98em;
+          line-height: 1.38;
+        }
+        h1 { margin: 0 0 8px; font-size: 1.35em; line-height: 1.2; }
+        h4 { margin: 8px 0 6px; }
+        .question {
+          font-size: 0.95em;
+          line-height: 1.3;
+        }
+        .answer-space {
+          height: 56px;
+        }
+        .page::before {
+          color: #000;
+          border-bottom-color: #9ca3af;
+          margin-bottom: 0.18cm;
+        }
+        .page {
+          --page-pad-top: 0.55cm;
+          --page-pad-x: 1.1cm;
+          width: 210mm;
+          min-height: 297mm;
+          box-sizing: border-box;
+          border: 0;
+          border-radius: 0;
+          background: #fff;
+          margin: 0;
+          padding-top: 0.55cm;
+          padding-bottom: 0.7cm;
+          padding-left: 1.1cm;
+          padding-right: 1.1cm;
+          break-after: page;
+          page-break-after: always;
+          page-break-inside: avoid;
+        }
+        .page:last-of-type { break-after: auto; page-break-after: auto; }
+      }
+      @media (max-width: 768px) {
+        .container { padding: 14px; }
+        .page { padding: 14px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="page">
+        <h2>P&aacute;gina 1</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+        <br>
+        <h1>Filipenses Lição 1</h1>
+        <h1>Alegre-se! Filipenses 1:1-2</h1>
+        <p>A carta que Paulo escreveu aos filipenses, enquanto estava preso, é toda sobre alegria. Isso é incrível quando se considera que ele era um prisioneiro quando escreveu para seus amigos em Filipos. Apesar de ser um prisioneiro, Paulo encontrou alegria no Senhor. Isso era possível porque sua alegria dependia de Jesus, e não de suas circunstâncias. A mesma alegria é possível para nós, não importa o quão difícil nossas circunstâncias possam ser.</p>
+        <br>
+        <p>Nesta carta, Paulo explica um segredo importante para viver a vida cristã: para viver bem esta vida, precisamos ter &ldquo;a mente de Cristo.&rdquo; Quando temos &ldquo;a mente de Cristo,&rdquo; dependemos dEle como nossa fonte de força e alegria para que também possamos viver com alegria e vitória em vez de tristeza e derrota.</p>
+        <h4 class="inline-section-title">O Autor</h4>
+        <p>Paulo escreveu este livro aos cristãos que viviam em Filipos, que eram seus parceiros em compartilhar o evangelho. Deus escolheu Paulo para levar as boas novas sobre Jesus aos gentios. Paulo era um judeu com treinamento religioso especial, mas não foi sua educação que mudou sua vida. Foi seu encontro pessoal com Jesus (Atos 9) que mudou sua vida para sempre. Jesus se revelou de maneira muito pessoal e dramática a Paulo. Ele então o chamou para contar aos gentios sobre as boas novas. Com grande custo físico, financeiro e emocional, Paulo viajou pelo mundo de sua época pregando as boas novas.</p>
+        <h4 class="inline-section-title">Data</h4>
+        <p>Muitos estudiosos acreditam que Paulo escreveu Filipenses por volta de 60 d.C. Paulo era prisioneiro em Roma e havia sido preso por causa de sua fé em Jesus. Ele aguardava julgamento perante César, que tinha o poder de matá-lo. Paulo não sabia o que seu futuro reservava. No entanto, ele viveu sua vida com alegria. </p>
+        <h4 class="inline-section-title">A História de Paulo com os Filipenses </h4>  
+        <p>Paulo partiu em três viagens missionárias pregando as boas novas. Na segunda viagem, Paulo e seus companheiros viajaram ao longo da costa leste do Mediterrâneo. Eles encontraram Timóteo na cidade de Listra (Atos 16:1-3), e ele se juntou a eles em sua jornada. Eles haviam planejado viajar para a Ásia Menor (a porção asiática da Turquia), mas Deus os redirecionou. Ele deu a Paulo uma visão de um homem macedônio que lhe implorou, &ldquo;Passe à Macedônia e ajude-nos&rdquo; (Atos 16:9). Então Paulo e seus companheiros navegaram para Filipos. A colônia romana de Filipos (Atos 16:12) era um centro comercial localizado no norte da Macedônia (atual Grécia). Filipos estava localizado na rota comercial que ligava o Oriente e o Ocidente.</p>
+        <p>No sábado, Paulo e seus amigos saíram para a beira do rio. Algumas mulheres se reuniram lá para orar, incluindo Lídia, uma empresária bem-sucedida. Ela e sua família se tornaram uns dos primeiros seguidores de Jesus em Filipos. Ao contrário da cultura da época, as mulheres eram proeminentes na igreja primitiva. Paulo os aceitou ansiosamente como companheiros de trabalho no reino. Ele elevou e dignificou a posição deles. Enquanto vivia em Filipos, Paulo expulsou um demônio de uma escrava grega. Ela havia feito muito dinheiro para seus donos adivinhando o futuro. Sem o demônio, ela não tinha poder. Seus donos ficaram zangados com Paulo e o arrastaram diante dos magistrados (Atos 16:19-24). Paulo e Silas foram severamente espancados e presos. À meia-noite, embora externamente seus pés estivessem presos no tronco, eles foram fortalecidos interiormente pela oração. Mesmo nesta situação terrível, eles experimentaram alegria no Senhor e a expressaram cantando hinos.</p>
+        <p class="footer-size">Todas as citações das escrituras são da Nova Versão Internacional (NVI), a menos que seja indicado o contrário.</p>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 2</h2>
+        <p>Filipenses &ndash; Lição 1</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>o que Deus pode fazer quando oramos. Paulo e Silas vivenciaram grande sofrimento físico por causa de Cristo. Mas em vez de sentir pena de si mesmos e reclamar, eles oraram. Quando eles intencionalmente entregaram suas ansiedades a Deus, Ele os encheu com Sua paz, &quot;que excede todo o entendimento&quot; (Filipenses 4:7). Em vez de ficar desanimado e deprimido, Deus sobrenaturalmente permitiu que Paulo e Silas se regozijassem. Ele pode fazer a mesma coisa por você quando você entrega a Ele seus problemas e preocupações.</p>
+        <p>De repente, um terremoto sacudiu a prisão e os libertou. O carcereiro estava prestes a se matar porque sabia que os romanos o matariam se algum prisioneiro escapasse. Mas Paulo assegurou-lhe que todos os prisioneiros ainda estavam lá. O carcereiro conversou com Paulo, e antes do amanhecer, ele e toda a sua família haviam se tornado cristãos e foram batizados. Paulo e Silas foram convidados para sua casa, onde comeram e adoraram juntos. Os magistrados soltaram Paulo e Silas e pediram a eles que deixassem a cidade. Depois de uma visita à casa de Lídia para encorajar os novos cristãos, eles partiram e foram para Tessalônica. Paulo permaneceu próximo da igreja em Filipos. Durante sua longa estadia em Éfeso, ele enviou Timóteo para as igrejas da Macedônia. Atos 20:1-2 relata que Paulo visitou essas igrejas, incluindo a de Filipos, a caminho de Corinto. Ele mais tarde visitou Filipos novamente e passou a Páscoa lá antes de sua última viagem a Jerusalém. Os Filipenses ocupavam um lugar especial no coração de Paulo. Lídia o havia recebido em sua casa. O carcereiro e sua família se alegraram com Paulo porque ele os ajudou a conhecer Jesus. Os Filipenses ajudaram Paulo quando ele estava em Tessalônica e durante sua prisão em Roma.</p>
+        <h4 class="inline-section-title">Saudações Amistosas</h4>
+        <p>Paulo começou esta carta com o título &ldquo;servos.&rdquo; Ele e Timóteo pertenciam a Jesus. Jesus os comprou morrendo na cruz para pagar por seus pecados. Paulo dirigiu esta carta a &ldquo;todos os santos em Cristo Jesus que estão em Filipos&rdquo; (Filipenses 1:1). A palavra grega para &ldquo;santos&rdquo; vem da palavra sagrado. Significa separado para um propósito específico - neste caso, para o propósito específico de Deus.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>como Paulo em suas outras cartas geralmente se apresentava como apóstolo. Mas, ao escrever aos Filipenses, ele usou a palavra grega &ldquo;servo&rdquo; ou &ldquo;escravo.&rdquo; Era uma palavra poderosa para os Filipenses que viviam em uma colônia romana. Eles entenderam o que significava ser recrutado para o serviço dos omanos. &ldquo;Servo&rdquo; ou &ldquo;escravo&rdquo; carregava conotações que implicavam humildade e submissão. Assim, quando Paulo chamou a si mesmo de servo de Jesus Cristo, os Filipenses puderam se relacionar com a posição que ele estava assumindo. Ele e Timóteo foram recrutados para o serviço de Jesus Cristo - não pela força, mas em um compromisso voluntário e sincero com seu Senhor.</p>
+        <p>A saudação de Paulo aos cristãos Filipenses era uma que ele usava com frequência: &ldquo;A vocês, graça e paz da parte de Deus nosso Pai e do Senhor Jesus Cristo&rdquo; (1:2). A palavra grega para &ldquo;graça&rdquo; significa bondade e favor imerecido. A palavra para &ldquo;paz&rdquo; implica integridade e solidez do coração e da mente. A ideia bíblica de paz é mais do que a ausência de guerra. Sugere bem-estar interior, independentemente das nossas circunstâncias. Deus em Sua graça dá Seu poder para que os cristãos possam viver vidas significativas e alegres em harmonia com Ele e com os outros.</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>Mesmo na prisão, Paulo estava cheio da alegria encontrada apenas em Cristo. Muitas vezes é tentador pensar que seríamos mais alegres se nossas circunstâncias fossem diferentes. Mas Paulo nos mostra que a verdadeira alegria é uma questão de deleitar-se em Cristo e não é dependente de condições externas. Existem &ldquo;prisões&rdquo; em sua vida - quaisquer circunstâncias, pressões, responsabilidades, hábitos nos quais você se sinta preso ou gostaria de mudar? Como você acha que Paulo lidaria com a &ldquo;prisão&rdquo; que você está vivenciando? Onde ele encontraria alegria? Como você pode experenciar a alegria também?</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 3</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+<p>Filipenses Lição 2 &mdash; Filipenses 1:3-30 O Testemunho de Paulo</p>
+        <h4 class="memory-title">Memorize a VERDADE!</h4>
+        <p>&ldquo;Estou convencido de que aquele que começou boa obra em vocês, vai completá-la até o dia de Cristo Jesus.&rdquo; Filipenses 1:6</p>
+        <h4 class="day-title">DIA 1: Filipenses 1:3-11 &mdash; A Afeição e Oração de Paulo Pelos Filipenses</h4>
+        <p class="question">1. Por que Paulo agradeceu a Deus pelos Filipenses?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">2. No versículo 6, do que Paulo tem certeza e como isso os encorajaria?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">3. Que coisas específicas Paulo pediu em oração pelos cristãos nos versículos 9-11?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">4. O que você acha que significa o amor crescer em conhecimento e discernimento?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Aprenda a VERDADE!</h4>
+        <p>Como você descreveria os sentimentos de Paulo pelos Filipenses? Paulo ora por eles com alegria. Ele os guarda em seu coração e anseia por eles com o afeto de Cristo. Toda vez que se lembra deles, ele agradece a Deus por eles. Por seu amor e afeição, Paulo ora pelos Filipenses. Esta semana, enquanto você ora pelos outros, peça a Deus que lhe dê alegria e compaixão por eles. Ore com frequência ao se lembrar deles. Esteja ciente do que acontece em seu coração enquanto você ora. Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <h4 class="day-title">DIA 2: Filipenses 1:12-14 &mdash; O Caminho do Evangelismo de Paulo</h4>
+        <p class="question">5. No que Paulo continuou a se concentrar enquanto estava na prisão (versículo 12)?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">6. Que efeito a prisão de Paulo teve sobre os cristãos? Por que você acha que teve esse efeito?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">7. Que provação em sua vida agora Deus poderia estar usando para o progresso do evangelho?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 3: Filipenses 1:15-18 &mdash; Motivos Para Pregar a Verdade</h4>
+        <p class="question">8. O que motivou os dois grupos diferentes pregando o evangelho?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Por que você acha que as pessoas pregariam por inveja e rivalidade?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 4</h2>
+        <p>Filipenses &ndash; Lição 2</p>
+        <p class="question">10. Por que Paulo não ficou chateado com esses pregadores com motivos errados? Como a atitude de Paulo desafia você?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 4: Filipenses 1:19-26 &mdash; Vivendo Para Cristo</h4>
+        <p class="question">11. Com o que Paulo contava enquanto esperava por sua libertação?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">12. Pelo que Paulo esperava ansiosamente e tinha esperança?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">13. Que conflito Paulo estava sentindo? Por que isso era um conflito para ele?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">14. Como ele resolveu esse conflito?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">15. O que você acha que Paulo quis dizer quando disse, &ldquo;para mim o viver é Cristo&rdquo;? Você pode dizer a mesma coisa? Explique sua resposta.</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 5: Filipenses 1:27-30 &mdash; A Exortação de Paulo</h4>
+        <p class="question">16. Como Paulo queria que os cristãos Filipenses vivessem?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">17. Você já enfrentou oposição ao evangelho? Como as palavras de Paulo podem encorajá-lo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">18. Paulo disse que o sofrimento viria, então como lutar lado a lado ajudaria os cristãos a permanecerem firmes?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Pratique a VERDADE!</h4>
+        <p>Paulo foi capaz de experimentar e demonstrar uma atitude alegre mesmo na prisão, acorrentado aos guardas da prisão. Como ele poderia estar alegre? Porque sua alegria veio de seu relacionamento com Deus, não de sua situação de vida. Deus quer o mesmo para nós quando enfrentamos dificuldades. Qual área da sua vida é desafiadora agora? Ore e peça a Deus para ajudá-lo através do Seu Espírito para que você possa se alegrar enquanto espera com expectativa e esperança (1:19-20). Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <h4 class="day-title">DIA 6: Participe do Grupo</h4>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 5</h2>
+        <p>Filipenses &ndash; Lição 2 Lição 2 - Comentário O Testemunho de Paulo Filipenses 1:3-30 Uma Oração Alegre Paulo orou com alegria pelos Filipenses por causa de sua parceria com ele em compartilhar o evangelho. Ele baseou sua alegria em suas experiências com eles e em sua confiança de que Deus continuaria a trabalhar neles e através deles. Ele confiou na boa obra de Deus em suas vidas. Paulo podia escrever orações alegres porque tinha aprendido a confiar em Deus.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>a total confiança de Paulo em Deus. Viver a vida cristã é difícil às vezes! Mas Paulo podia dizer com certeza que o que Deus começa Ele termina. Se compartilharmos dessa certeza, então podemos confiar a Deus as nossas circunstâncias também. Desde o dia da nossa salvação, Deus começa a trabalhar, e Ele nunca desiste de nós. Embora possamos ser tentados a desistir às vezes, Deus não é um abdicador. Ele continuará trabalhando em nós até o dia em que Cristo voltar ou o dia em que Ele nos chamar para casa. Você pode confiar em Deus, independentemente de sua própria força, coragem ou capacidade, porque Ele está trabalhando em você.</p>
+        <p>Paulo expressou terna afeição pelos Filipenses. Ele os guardava em seu coração. Eles tinham compartilhado a graça de Deus juntos, e ele ansiava por eles com a afeição de Jesus. Em 1:9-11, Paulo orou para que o amor de seus leitores continuasse crescendo, juntamente com o conhecimento e discernimento. O amor sem conhecimento e discernimento pode ser superficial. O conhecimento e o discernimento sem amor podem ser insensíveis e severos. Paulo queria que os Filipenses tivessem amor com discernimento. Ele queria que eles amassem e valorizassem as coisas que Deus ama e valoriza. Então, eles seriam capazes de distinguir entre o que era bom e o que não era. Esse discernimento lhes permitiria viver vidas puras e sem culpa. Os pedidos que Paulo fez a Deus para os Filipenses tinham a ver com o seu bem-estar espiritual. Embora os Filipenses tivessem necessidades físicas e financeiras, ele se concentrou no que era mais importante &mdash; suas necessidades espirituais.</p>
+        <h4 class="inline-section-title">O Plano Surpreendente de Deus</h4>
+        <p>Em Atos, Lucas descreveu a prisão domiciliar de Paulo em Roma. Estudiosos acreditam que Paulo provavelmente escreveu aos Filipenses durante este tempo. Embora ele estivesse acorrentado a um guarda, Paulo ainda podia ter visitantes e compartilhar sobre Jesus (Atos 28:16, 30). O próprio Deus planejou a estratégia mais eficaz para Seu servo Paulo &mdash; incluindo sua prisão, que na verdade o ajudou para &ldquo;o progresso do evangelho&rdquo; (Filipenses 1:12). Os guardas da prisão, que tinham grande influência entre pessoas de todos os níveis sociais, ouviram a pregação de Paulo diariamente por dois anos (Atos 28:30-31). Muitos deles se tornaram cristãos (Filipenses 4:22). A estratégia incomum de Deus também inspirou e fortaleceu os irmãos cristãos de Paulo. Eles cresceram em coragem e ousadamente pregaram o evangelho onde quer que estivessem.</p>
+        <h4 class="inline-section-title">Discernimento Espiritual</h4>
+        <p>Paulo disse que sabia que algumas pessoas estavam pregando mais para irritá-lo do que para honrar a Cristo. Mas para ele o importante era que Cristo estava sendo pregado. Como ele poderia escrever tão calmamente sobre esses pregadores invejosos? Paulo reconheceu que sua ambição egoísta e rivalidade estavam erradas. No entanto, eles estavam pregando o mesmo evangelho que Paulo pregou (1:15-18). Ele permaneceu calmo porque sua principal preocupação era com a pureza da mensagem e não com os motivos de outras pessoas.</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 6</h2>
+        <p>Filipenses &ndash; Lição 2</p>
+        <h4 class="inline-section-title">Vida Alegre</h4>
+        <p>Toda a vida de Paulo girava em torno de Cristo. Consequentemente, o propósito de sua vida era mostrar Cristo ao mundo. Por esta ter sido a sua razão de viver, ele pôde dizer &ldquo;porque para mim o viver é Cristo e o morrer é lucro&rdquo; (Filipenses 1:21). Quando as pessoas enfrentam a possibilidade de morte, seus valores e prioridades reais se tornam óbvios. Para Paulo, morrer significava estar com o Senhor que ele viveu para servir. Enquanto ele ainda tinha tempo na terra, Paulo estava determinado a glorificar a Cristo vivendo para Ele. Isso pode estar em nítido contraste para muitos de nós hoje. ? fácil se distrair e lutar por coisas como dinheiro, felicidade, poder, posição ou família. Mas para Paulo, Cristo era sua vida, sua única razão de existir. Paulo estava dividido por seus desejos conflitantes de morrer e estar com Cristo ou viver para o bem dos outros. A palavra que ele usou para &ldquo;dividido&rdquo; descreve um navio que passa por um canal estreito. Paul sentiu-se preso entre duas opções gloriosas. &ldquo;Partir e estar com Cristo&rdquo; (Filipenses 1:23) seria desfrutar de total liberdade, aliviado do fardo da vida na terra. &ldquo;Partir&rdquo; significa literalmente soltar, desamarrar cordas ou puxar a âncora de um navio. A morte o libertaria para seguir em frente, para navegar em direção a um destino glorioso e eterno. em vez disso, Paulo estava convencido de que ele iria &ldquo;permanecer&rdquo; (1:25) e ajudar os outros a crescer e experimentar a alegria da fé em Cristo. Seu amor por Cristo e seu amor pelos outros foram os fatores motivadores em sua vida &mdash; não o egoísmo.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>os desejos conflitantes de Paulo. Ele ansiava por estar com Cristo, odiava pensar em deixar jovens cristãos. Ele amava a vida, ainda que ansiasse pela morte. Nós, como Paulo, temos momentos em que amamos viver aqui na terra e outros momentos em que desejamos estar com Jesus no céu. Experimentamos tristeza e sofrimento, mas podemos nos alegrar em Cristo. Embora as tempestades da vida ameacem nos sobrecarregar, podemos ter paz &mdash; e até alegria. Conhecer a Cristo nos faz amar mais a vida e temer menos a morte.</p>
+        <h4 class="inline-section-title">Viver Digno de Cristo</h4>
+        <p>&ldquo;Exerçam a sua cidadania de maneira digna do evangelho de Cristo&rdquo; (1:27). O que significa viver de uma maneira que seja digna do evangelho? Paulo explicou uma maneira. Ele encorajou os Filipenses a permanecerem firmes em um só espírito, em uma só mente. Ele queria ouvir deles que eles estavam unidos e capazes de trabalhar lado a lado pela fé. Batalhar juntos como um só pela fé resultaria no evangelho avançando. O progresso do evangelho seria reconhecido por aqueles que se opunham a ele. Paulo tinha encontrado oposição em Filipos e Roma. Ele foi preso todas as vezes. Ele conhecia a oposição e avisou aos Filipenses que eles também poderiam esperar por isso. Ele os convenceu a não serem intimidados por seus inimigos. Sua capacidade de permanecer firme sem medo seria um sinal da salvação de Deus. O evangelho sempre terá oposição; isso é fato. A vida cristã não é um parque de diversões ou uma vida fácil. A vida cristã se dá em um campo de batalha, em meio ao conflito. Mas Paulo ofereceu uma perspectiva espiritual que teria dado coragem aos seus leitores. Não se trata apenas de resistir a oposição &mdash; trata-se de permanecer com Jesus. Sofrer por causa de Cristo é difícil, mas também é um privilégio. Assim como crer em Cristo é um privilégio, sofrer por causa dEle também é.</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>Seria tolice tentar batalhar sozinho contra um exército inimigo. Não é diferente em batalhas espirituais. Paulo diz aos filipenses que batalhem &ldquo;lado a lado&rdquo; pela fé do evangelho. Quando estamos juntos em nossas batalhas espirituais, nossa fé se fortalece. Podemos nos encorajar e orar um pelo outro. Podemos resistir unidos contra aqueles que se opõem a nós e não ter medo. Você costuma travar suas batalhas espirituais sozinho? Como se unir com outros pode ser uma estratégia mais eficaz? Como isso pode trazer união? Pense em uma batalha espiritual que você está travando. A quem você pode pedir para &ldquo;lutar lado a lado&rdquo; contigo?</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 7</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+<p>Filipenses Lição 3 &mdash; Filipenses 2:1-11 Jesus, Nosso Modelo de Humildade</p>
+        <h4 class="memory-title">Memorize a VERDADE!</h4>
+        <p>&ldquo;Por isso Deus o exaltou à mais alta posição e lhe deu o nome que está acima de todo nome, para que ao nome de Jesus se dobre todo joelho, nos céus, na terra e debaixo da terra, e toda língua confesse que Jesus Cristo é o Senhor, para a glória de Deus Pai.&rdquo; Filipenses 2:9-11</p>
+        <h4 class="day-title">DIA 1: Filipenses 2:1-2 &mdash; Alegria na Comunidade</h4>
+        <p class="question">1. A partir do versículo 1, sobre o que Paulo incentivou os filipenses a refletir?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">2. O que completaria a alegria de Paulo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">3. Como experenciar as bênçãos que Paulo listou no versículo 1 poderia levar à união? Você já teve esta experiência? Explique.</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 2: Filipenses 2:3-4 &mdash; Preferindo uns aos Outros</h4>
+        <p class="question">4. Como a &ldquo;ambição egoísta&rdquo; e a &ldquo;presunção&rdquo; são diferentes da &ldquo;humildade&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">5. O que Paulo disse que podemos fazer em vez de agir por ambição e presunção egoístas? (Inclua ambos os versículos.)</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">6. Quais são algumas maneiras de zelar pelos interesses dos outros?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Aprenda a VERDADE!</h4>
+        <p>Paulo sabia que o egoísmo prejudicaria a igreja, então encorajou os filipenses a viverem em humildade. Viver em humildade pode ser mal interpretado. Não é nos humilhar &mdash; a escritura nos diz que somos de grande valor para Deus, escolhido como &ldquo;povo exclusivo de Deus&rdquo; (1 Pedro 2:9). Também não é ter de si mesmo um conceito mais elevado do que deve ter (Romanos 12:3). Um passo para a vida humilde é deixar de lado nosso egocentrismo e tratar os outros com consideração e preocupação. Esta semana, ao interagir com os outros, ouça os interesses deles e coloque-os deliberadamente antes dos seus. Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 8</h2>
+        <p>Filipenses &ndash; Lição 3</p>
+        <h4 class="day-title">DIA 3: Filipenses 2:5-7 &mdash; A Mente de Cristo</h4>
+        <p class="question">7. Que tipo de mente Paulo encorajou os filipenses a ter?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">8. O que você acha que Paulo quis dizer quando disse que Jesus &ldquo;estava na forma de Deus&rdquo;? (Veja Colossenses 1:15-20 e Hebreus 1:1-4.)</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Do que Jesus desistiu para se tornar um ser humano?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 4: Filipenses 2:8-9 &mdash; A Humildade e a Exaltação de Jesus</h4>
+        <p class="question">10. Qual foi a demonstração final da humildade de Jesus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">11. Como você descreveria a conexão entre obediência e humildade?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">12. De acordo com o versículo 9, quais as duas maneiras que Deus respondeu à humilde obediência de Jesus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 5: Filipenses 2:10-11 &mdash; O Nome Acima de Todo Nome</h4>
+        <p class="question">13. Quem se curvará ao nome de Jesus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">14. Um dos significados do nome Jesus é &ldquo;o Senhor é a salvação.&rdquo; O que sobre o nome Dele faz com que você queira adorá-Lo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">15. O que cada língua vai confessar? Qual é a diferença entre confessar Jesus como &ldquo;Salvador&rdquo; e confessá-lo como &ldquo;Senhor&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Pratique a VERDADE!</h4>
+        <p>Paulo apela aos cristãos para terem &ldquo;uma mente&rdquo; e então os aponta para a mente que é &ldquo;sua em Jesus Cristo.&rdquo; Como podemos obter a mente de Cristo? Temos recebido a mente de Cristo através do Espírito &ldquo;mas o Espírito procedente de Deus, para que entendamos as coisas que Deus nos tem dado gratuitamente&rdquo; (1 Coríntios 2:12, 16). Se formos honestos, teríamos que dizer que nossas mentes nem sempre pensam como Cristo. Uma maneira de ter a mente de Cristo é pensar a partir de Sua perspectiva. Em oração, podemos pedir-Lhe, &ldquo;Jesus, ajuda-me a ter os Teus pensamentos a partir da Tua Palavra. O que você diria agora, Jesus? Se você fosse eu, o que você faria nesta situação?&rdquo; Passe um tempo esta semana pedindo a Jesus por Sua mente enquanto caminha pelas circunstâncias de sua vida. Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <h4 class="day-title">DIA 6: Participe do Grupo</h4>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 9</h2>
+        <p>Filipenses &ndash; Lição 3 Lição 3 - Comentário Jesus, Nosso Modelo de Humildade Filipenses 2:1-11 Paulo Pediu União O capítulo 2 começa com Paulo encorajando os filipenses a refletir sobre os benefícios que haviam recebido porque pertenciam a Cristo. Ele não duvidava que eles tivessem recebido essas coisas boas. Ele presumiu que, porque eles estavam em Cristo, eles tinham vivenciado Seu amor, encorajamento, conforto, afeição, simpatia e comunhão com o Espírito Santo. Ele simplesmente queria que eles ponderassem essas bênçãos para que pudessem entender o que tinham juntos em Cristo. No versículo 2, Paulo novamente enfatizou como era importante para os filipenses terem &ldquo;uma mente.&rdquo; Em 1:27 ele os pediu que permanecessem firmes em um espírito, &ldquo;num só espírito, lutando unânimes pela fé evangélica.&rdquo; Aqui, seu foco se voltou da união em face da oposição à união para proteger a comunidade. Filipos era uma cidade cosmopolita repleta de pessoas de culturas e classes econômicas variadas. Paulo queria que essas pessoas diferentes se unissem. Paulo implorou aos filipenses que tivessem a mesma mente e amor e que estivessem &ldquo;em pleno acordo&rdquo; uns com os outros. Isso, ele disse, completaria sua alegria. Então ele descreveu maneiras de fazer isso. Ele disse a eles para não agirem por &ldquo;ambição egoísta.&rdquo; Suas ações não devem ser baseadas em suas necessidades e desejos pessoais. Em vez de serem presunçosos, eles deveriam valorizar humildemente os outros mais do que a si mesmos. O amor começa quando consideramos que as necessidades de outra pessoa são mais importantes do que as nossas. Paulo não estava dizendo que os filipenses não deveriam ter interesses pessoais. Ele simplesmente os pediu a levar em consideração os interesses dos outros também. Seus interesses pessoais não deveriam ser sua principal preocupação, mas deveriam ver os outros como dignos de mais consideração do que eles próprios. Para conseguir isso, eles precisariam ser humildes e submissos uns aos outros.</p>
+        <h4 class="inline-section-title">Jesus se fez Humilde</h4>
+        <p>A maneira de chegar a &ldquo;uma mente,&rdquo; disse Paulo, era ter a mente de Cristo. Jesus é o modelo supremo do que significa ser um servo altruísta. Os versículos 6-11 descrevem Jesus como um exemplo de humildade. Estes versículos são uma parte muito significativa dos filipenses. Paulo queria que os eles soubessem que as próprias qualidades que ele estava descrevendo eram verdadeiramente de Jesus Cristo. Antes que possamos agir como Cristo, temos que ter Sua mente e atitudes. Esses versículos, que resumem o evangelho em apenas algumas palavras, podem ter sido cantados em adoração na igreja primitiva. Eles certamente nos dão razão para querer adorar a Jesus! De primeira importância é a &ldquo;forma&rdquo; de Jesus. A palavra Grega expressa a ideia de ser essencial e imutável. Em outras palavras, a natureza essencial de Jesus é a natureza do próprio Deus. Colossenses 1:15-20 descreve Jesus como &ldquo;a imagem de Deus invisível.&rdquo; Diz que todas as coisas foram criadas por Ele e todas as coisas são mantidas unidas por Ele. Em Jesus, &ldquo;foi do agrado de Deus que nele habitasse toda a plenitude&rdquo;. Da mesma forma, Hebreus 1:3 descreve Jesus como &ldquo;o resplendor da glória de Deus e a expressão exata do Seu ser.&rdquo; Em conjunto, esses versículos expressam fortemente a divindade de Cristo. Jesus não é nada menos do que o glorioso, majestoso e poderoso Deus do universo. No entanto, Ele não se apegou a nenhum de Seus direitos enquanto Deus. Ele não agarrou ao poder e a glória que merecia por direito. Em vez disso, Ele &ldquo;Se esvaziou.&rdquo; Ele se despiu de todos os privilégios e assumiu a forma de um servo. Ele Se fez humilde e nasceu &ldquo;semelhante aos homens.&rdquo; Enquanto Jesus estava na terra, Ele restringiu o uso dos poderes de Seus atributos divinos para Seu próprio benefício. Ao se tornar um de nós, Jesus experimentou as mesmas tentações e provações da vida que nós, mas Ele nunca pecou (Hebreus 4:15). Ele entende tudo o que passamos.</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 10</h2>
+        <p>Filipenses &ndash; Lição 3</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>a decisão de Jesus de honrar e obedecer a Seu Pai, tornando-se um de nós. Jesus criou todas as coisas nos céus e na terra &mdash; as visíveis e invisíveis (Colossenses 1:16). Ele não só criou tudo, mas Ele mantém tudo unido (Colossenses 1:17). Tudo depende dEle. No entanto, Ele deixou tudo isso de lado para se tornar um bebê. Pequeno. Vulnerável. Totalmente dependente. Jesus renunciou ao Seu direito de ser Rei do universo. Ele &ldquo;Se esvaziou.&rdquo;</p>
+        <p>Por fim, ser humano significa que Jesus poderia morrer pelos pecados da humanidade. Este foi o exemplo supremo de Sua humildade e obediência à vontade de Seu Pai. Ele &ldquo;humilhou-se a si mesmo e foi obediente até à morte, e morte de cruz.&rdquo; Ele Se submeteu a uma morte humilhante e agonizante &mdash; a punição geralmente dada ao pior tipo de criminoso.</p>
+        <h4 class="inline-section-title">Deus Exaltou a Jesus</h4>
+        <p>A humildade extrema de Jesus não passou despercebida. O versículo 9 diz que Deus, então, &ldquo;o exaltou à mais alta posição.&rdquo; Jesus ilustra o princípio para nós de que &ldquo;todo aquele que a si mesmo se humilhar será exaltado&rdquo; (Mateus 23:12). Junto com Sua exaltação, Deus deu a Jesus um &ldquo;nome que está acima de todo nome.&rdquo; Toda a criação se curvará a este nome e O reconhecerá como Senhor. Todos os que já viveram, de todas as tribos, línguas e nações, reconhecerão Jesus Cristo por quem Ele é &mdash; Rei dos reis e Senhor dos senhores! E Deus será glorificado.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>a alegria que deve ter dado a Deus ao exaltar Seu Filho! Ele respondeu à obediência de Jesus, dando-Lhe o nome acima de todo nome. Ele O honrou sentando-O à Sua direita no mais alto lugar no céu. Nós também responderemos a Jesus. Paulo diz que um dia todo joelho se dobrará e toda língua confessará que Jesus Cristo é o Senhor (2:10-11). E por fim, todos reconhecerão a autoridade e o direito de Jesus de governar. Mesmo que nos recusemos a adorar Jesus agora, um dia todos nós O adoraremos. Quão melhor é reconhecer Jesus como Senhor agora, nesta vida. A maior alegria vem para aqueles que de bom grado O escolhem agora.</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>Em 2:1, Paulo parece estar encorajando os filipenses a refletirem sobre as bênçãos que receberam uns através dos outros. Ele oferece uma lista para eles refletirem: Você tem sido encorajado em Cristo? Consolado pelo amor? Cuidados com carinho e simpatia? Você já experimentou a comunhão no Espírito? ? difícil transmitir o que não vivenciamos pessoalmente. Mas quando Deus oferece amor, cuidado, encorajamento, afeto e simpatia por nós através de Seus filhos, percebemos como a vida com Ele e Seu povo deve ser. Nossa resposta, então, pode ser compartilhar esses dons de graça com os outros. E isso, é claro, aproxima o povo de Deus em comunhão e união. O que Deus lhe deu através de Seu povo? Recebeu misericórdia inesperada? Suporte emocional? Generosidade? Perdão? Ajuda prática? Compreensão empática? Depois de dizer &ldquo;Obrigado&rdquo; a Deus por essas bênçãos, peça a Ele que lhe mostre como você pode compartilhar uma dessas mesmas dádivas com outro cristão.</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 11</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+<p>Filipenses Lição 4&mdash;Filipenses 2:12-30 Vivendo a Fé</p>
+        <h4 class="memory-title">Memorize a VERDADE!</h4>
+        <p>&ldquo;Pois é Deus quem efetua em vocês tanto o querer quanto o realizar, de acordo com a boa vontade dEle.&rdquo; Filipenses 2:13</p>
+        <h4 class="day-title">DIA 1: Filipenses 2:12-13 &mdash; A Parte de Deus e a Nossa Parte</h4>
+        <p class="question">1. O que é &ldquo;salvação&rdquo; e como uma pessoa a recebe? (Veja também João 3:16 e Romanos 10:9-10.)</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">2. O que você acha que significa desenvolver sua salvação com &ldquo;temor e tremor</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">3. Como o fato de Deus estar trabalhando dentro de você o encoraja?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 2: Filipenses 2:14-16 &mdash; Brilho no Mundo</h4>
+        <p class="question">4. O que Paulo nos disse para não fazer? Por que isso é importante?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">5. Como Paulo descreveu o mundo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">6. Quais são algumas maneiras pelas quais você pode ser uma luz no mundo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">7. O que você acha que significa &ldquo;retendo firmemente a palavra da vida&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Aprenda a VERDADE!</h4>
+        <p>Deus nos dá poder para fazer o que Lhe agrada. Lhe agrada quando não resmungamos ou disputamos. Reclamar ou discutir afetou alguns de seus relacionamentos? Se sim, peça a Deus que lhe der poder para mudar. Peça-Lhe humildade, paciência, gratidão e a capacidade de ver a perspectiva da outra pessoa. Perceba como Deus muda você. Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 12</h2>
+        <p>Filipenses &ndash; Lição 4</p>
+        <h4 class="day-title">DIA 3: Filipenses 2:17-18 &mdash; Derramado para Deus</h4>
+        <p class="question">8. Uma oferta de bebida era uma oferta líquida derramada diante de Deus. O que você acha que significa ser derramado como uma oferta de bebida a Deus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Como você responde ao desafio de Paulo aos filipenses de se alegrar em sacrifício?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 4: Filipenses 2:19-24 &mdash; Paulo e Timóteo</h4>
+        <p class="question">10. Por que Paulo queria enviar Timóteo aos filipenses?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">11. O que esses versículos lhe dizem sobre o relacionamento de Paulo com Timóteo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">12. De que modo a vida de Timóteo foi um exemplo de alguém realizando sua salvação?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 5: Filipenses 2: 25-30 &mdash; Paulo e Epafrodito</h4>
+        <p class="question">13. A partir desses versículos, o que você sabe sobre Epafrodito?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">14. Por que Paulo estava ansioso para mandá-lo de volta a Filipos?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">15. Como a vida de Epafrodito era exemplo de alguém derramando sua vida por Cristo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Pratique a VERDADE!</h4>
+        <p>Timóteo escolheu acompanhar Paulo e aprender a viver uma vida piedosa com ele. Todos nós podemos nos beneficiar de pessoas que são mais maduras em Cristo do que nós. Você conhece alguém que é forte na oração? Eficaz na evangelização? Disposto a servir? Repleto do fruto do Espírito (Gálatas 5:22-23)? Converse esta semana com alguém que está mais adiantado em sua caminhada com Deus. Fale sobre o que você vê na vida dela que você gostaria de crescer na sua. Esteja preparado para compartilhar o que você aprendeu com seu grupo.</p>
+        <h4 class="day-title">DIA 6: Participe do Grupo</h4>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 13</h2>
+        <p>Filipenses &ndash; Lição 4 Lição 4 - Comentário Vivendo a Fé Filipenses 2:12-30 Até aqui, Paulo havia pedido aos filipenses a viver &ldquo;de maneira digna do evangelho de Cristo&rdquo; (1:27) e a seguir o exemplo de Cristo de obediência humilde (2:5-11). Ele começou Filipenses 2:12 com a palavra &quot;assim&quot;. Paulo reconheceu que os filipenses já estavam adotando ações de obediência. Quando ele esteve fisicamente presente com eles, ele os encorajou a obedecer a Cristo. Agora, em sua ausência, ele lhes deu mais encorajamento e instrução sobre como viver a vida de fé. Paulo claramente desejava estar com os filipenses (veja também 2:24). O que ele tinha a dizer a eles era crucial para a fé deles. Mas ele ainda não podia estar com eles, então ele implorou aos seus queridos amigos que o ouvissem, &ldquo;não apenas em minha presença, porém muito mais agora na minha ausência.&rdquo; Ele pediu aos filipenses a continuarem a pôr &ldquo;em ação a salvação de vocês com temor e tremor&rdquo; (2:12).</p>
+        <h4 class="inline-section-title">A Parte de Deus e a Nossa Parte</h4>
+        <p>A Escritura é clara que a salvação é uma dádiva gratuito de Deus. Não pode ser ganho ou merecido (veja Romanos 6:23 e Efésios 2:8-9). Perceba que Paulo não disse &ldquo;ponham em ação pela salvação de vocês.&rdquo; Então, o que Paulo quis dizer quando disse &ldquo;ponham em ação a salvação de vocês&rdquo;? A salvação é recebida como uma dádiva. Mas tendo recebido a graça, temos a responsabilidade de cultivá-la. Devemos seguir a vontade de Deus como a Palavra nos instrui através do poder do Espírito Santo que habita em nós. Os versículos 12 e 13 mostram o paradoxo da soberania divina e do livre arbítrio humano. Deus está no controle. Mas Ele também quer que participemos do que Ele está fazendo. Nesse contexto, a frase &ldquo;ponham em ação&rdquo; significa produzir um resultado, completar o que foi iniciado. Paulo estava falando sobre algo que Deus iniciou na vida dos cristãos de que eles faziam parte. O versículo 13 explica que, &ldquo;pois, é Deus quem efetua em vocês tanto o querer quanto o realizar, de acordo com a boa vontade dEle&rdquo; (2:13). Deus dá a Seus filhos o desejo de agradá-Lo e o poder de fazê-lo. ? reconfortante saber que Deus nos encorajará e nos capacitará a fazer Sua vontade. Paulo usou a frase &ldquo;com temor e tremor.&rdquo; Ele estava enfatizando quão séria é a nossa parte em pôr a nossa salvação em ação diante de um Deus santo. Não precisamos ter medo de perder nossa salvação. Mas precisamos ser intencionais em responder à obra que Deus está fazendo em nós.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>quão crítico é estar ciente da voz mansa e delicada de Deus. A Palavra de Deus nos dá princípios claros para viver uma vida agradável a Ele. E o Espírito Santo vivendo dentro de nós nos ajuda a entender e pôr em prática o que Deus deseja para nós. Se prestarmos atenção, ouviremos as advertências, sussurros e orientações do Espírito Santo. Quando levamos Sua liderança a sério, estamos agindo no santo temor que Paulo descreve.</p>
+        <h4 class="inline-section-title">Brilhem como Estrelas</h4>
+        <p>Parte da obra de Deus é purificar nossas atitudes. Dois hábitos que interferiam no que Deus queria realizar na vida dos filipenses eram o resmungo e a disputa. Paulo estava preocupado que suas queixas e discussões manchassem sua reputação entre os não cristãos. Viver vidas &ldquo;irrepreensíveis&rdquo; permitiria que eles brilhassem &ldquo;como estrelas no universo.&rdquo; Sua libertação da contaminação contrastaria fortemente com a &ldquo;geração corrompida e depravada&rdquo; na qual viviam. Ao se apegarem à palavra da vida, sua luz brilharia fortemente para que outros a seguissem. Paulo desejava sentir orgulho dos filipenses. Ele tinha trabalhado duro em seu nome. Ele tinha sido preso por causa de sua atividade missionária em Filipos, e não queria sentir que seu trabalhado tinha sido em vão. Ele se comparou a uma oferta de bebida sendo derramada sobre a oferta de fé deles (2:17). Esta alegoria teria sido familiar para os filipenses. As ofertas líquidas foram derramadas em um altar durante os tempos do Antigo Testamento, ou no chão na cultura Greco-Romana. Paulo derramou sua vida a serviço de Deus e escolheu se alegrar &mdash; mesmo quando antecipou morrer como mártir.</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 14</h2>
+        <p>Filipenses &ndash; Lição 4</p>
+        <h4 class="inline-section-title">Os Companheiros de Paulo</h4>
+        <p>Continuando o tema de viver digno do evangelho de Cristo, Paulo elogiou dois companheiros que seguiram o exemplo de Cristo de obediência: Timóteo e Epafrodito. Timóteo, o jovem associado de Paulo, era o filho de um homem Grego (Gentio) e uma cristã Judia devota, Eunice (Atos 16:1; 2 Timóteo 1:5). Eunice, junto com a avó de Timóteo, Lóide, o alimentou na fé. Paulo e Silas conheceram Timóteo pela primeira vez quando chegaram à sua cidade natal, Listra, em sua segunda viagem missionária. Timóteo acompanhou Paulo e Silas quando eles deixaram Listra. Ele foi dedicado à causa de Cristo e ministrava em nome de Paulo para as igrejas na Macedônia, Corinto, Filipos, Tessalônica e Éfeso. Ele se uniu a Paulo escrevendo cartas aos cristãos em Filipos, Colossos e Tessalônica. Apesar de sua juventude (1 Timóteo 4:12) e doenças frequentes (5:23), Timóteo serviu fielmente a Deus. Paulo acreditava que ninguém era tão confiável e genuinamente preocupado com o bem-estar dos filipenses quanto Timóteo.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>no investimento de Paulo em Timóteo. Não parece que Paulo tivesse contato regular com nenhum membro próximo da família. Não há menção de esposa ou filhos. Quando Timóteo se juntou a ele no ministério, Paulo o recebeu como seu filho (Filipenses 2:22) e seu amado filho (2 Timóteo 1:2). Timóteo se tornou o filho que Paulo nunca teve. Se Paulo tivesse tido um filho, ele o teria treinado para seguir sua vocação. Naqueles dias, o negócio da família era transmitido de geração em geração de pai para filho. Um pai treinava cuidadosamente seu filho para seguir sua vocação. Da mesma forma, Paulo derramou sua paixão por Cristo em Timóteo e o treinou para continuar o ministério em sua ausência e após sua morte. Paulo entendeu a importância de treinar pessoas mais jovens para fazer o trabalho de Deus. Quando seguimos seu exemplo, podemos ter certeza de que o reino de Deus viverá, mesmo depois de morrermos.</p>
+        <p>Paulo descreve Epafrodito como &ldquo;meu irmão, cooperador e companheiro de lutas&rdquo; (2:25). Os filipenses tinham enviado Epafrodito com uma contribuição financeira para Paulo. Enquanto em Roma ministrando para Paulo, ele ficou gravemente doente e quase morreu (2:27). Paulo se alegrou por Deus ter poupado sua vida e agora o estava enviando de volta aos filipenses. Ele pediu-lhes para receber Epafrodito com alegria e honra, porque &ldquo;ele quase morreu por amor à causa de Cristo&rdquo; (2:30). Epafrodito, um homem íntegro e dedicado, era digno de ser honrado.</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>Os cristãos devem viver e &ldquo;pôr em ação&rdquo; a salvação que Deus nos deu em Cristo. Especificamente em Filipenses 2 Paulo enfatizou a prática de nossa salvação através de uma vida de humilde servidão. Ele descobriu que poucas pessoas estavam dispostas a ser servos. Poucas pessoas estavam dispostas a colocar os interesses de Cristo acima de seus próprios interesses &mdash; mesmo assim Timóteo o fez! Paulo comentou sobre Timóteo, &ldquo;Não tenho ninguém, que, como ele, tenha interesse sincero pelo bem-estar de vocês, pois todos buscam os seus próprios interesses e não os de Jesus Cristo&rdquo; (Filipenses 2:20-21).</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>em alguém que você conhece que precisa de incentivo, companheirismo ou ajuda prática. Quais barreiras podem estar te impedindo de ajudar essa pessoa? Entregue-as a Deus. Então, peça a Jesus para ajudá-la a ver essa pessoa com Seus olhos. Liste três ou quatro coisas que vêm à sua mente. Como ver a pessoa da perspectiva dEle pode motivá-la a servir?</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 15</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+<p>Filipenses Lição 5&mdash; Filipenses 3 Avançando em Direção à Meta</p>
+        <h4 class="memory-title">Memorize a VERDADE!</h4>
+        <p>&ldquo;Mas o que para mim era lucro, passei a considerar como perda, por causa de Cristo.&rdquo; Filipenses 3:7</p>
+        <h4 class="day-title">DIA 1: Filipenses 3:1-3 &mdash; Paulo Advertiu os Filipenses Nota: Nesta passagem Paulo alertou sobre os judeus que estavam impondo rituais judaicos, como a circuncisão aos Gentios.</h4>
+        <p class="question">1. O que Paulo pediu aos filipenses para fazerem no versículo 1?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">2. Como Paulo chamou os Judeus que insistiam que os cristãos gentios obedecessem às leis judaicas, como a circuncisão?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">3. Como Paulo descreveu os espiritualmente circuncidados no versículo 3? O que você acha que Paulo quis dizer com cada frase? (Veja também Romanos 2:28-29.)</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 2: Filipenses 3:4-7 &mdash; Paulo Descreveu seu Passado</h4>
+        <p class="question">4. O que você acha que Paulo quis dizer com &ldquo;confiança na carne&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">5. Veja as coisas que Paulo disse sobre si mesmo nos versículos 4-6. Por que Paulo poderia ter tanta &ldquo;confiança na carne&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">6. De acordo com o versículo 7, como Paulo agora vê suas credenciais e por quê?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Aprenda a VERDADE!</h4>
+        <p>Paulo tinha muitas razões para confiar em si mesmo, mas não o fazia. Ele considerava essas coisas como uma perda por causa de Cristo. Que vantagens, habilidades e realizações pessoais você tem? Como você as vê? Esta semana, peça a Deus que lhe mostre maneiras as quais você deposita sua confiança em si mesmo. Como você pode confiar nEle? Esteja preparado para compartilhar sua experiência com seu grupo.</p>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 16</h2>
+        <p>Filipenses &ndash; Lição 5</p>
+        <h4 class="day-title">DIA 3: Filipenses 3:8-11 &mdash; Paulo Trocou Tudo por Cristo</h4>
+        <p class="question">7. Por que Paulo considerou tudo como uma perda?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">8. Como você explicaria o que significa &ldquo;ganhar Cristo e ser encontrado nEle&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Compare os versículos 6 e</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Como uma pessoa obtém justiça de Deus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">10. O que Paulo queria &ldquo;conhecer&rdquo; sobre Cristo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 4: Filipenses 3:12-16 &mdash; Paulo Prosseguiu</h4>
+        <p class="question">11. O que você acha que Paulo quis dizer com &ldquo;prossigo&rdquo;? (Veja versículos 12 e 14.)</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">12. Por que é importante esquecer o que ficou por trás?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">13. Paulo declarou seu propósito de vida nos versículos 12-16. O que você escreveria como seu propósito de vida?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 5: Filipenses 3:17-21 &mdash; Paulo Ofereceu um Exemplo</h4>
+        <p class="question">14. Por que você acha que Paulo encorajou os filipenses a imitá-lo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">15. Que emoção você acha que Paulo sentiu quando descreveu os &ldquo;inimigos da cruz&rdquo;? Como seu exemplo afeta a maneira como você pensa sobre os inimigos de Cristo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">16. Como saber que sua cidadania está no céu pode afetar a maneira como você vive sua vida diária?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Pratique a VERDADE!</h4>
+        <p>Conhecer a Cristo era o desejo mais profundo e o maior objetivo de Paulo. Ele não queria apenas compreensão mental. Ele queria realmente conhecer Jesus &mdash; tanto as coisas difíceis (sofrimento) quanto as gloriosas (Sua ressurreição). O que conhecer a Cristo significa para você? O que você quer vivenciar em seu relacionamento com Cristo? Esteja preparado na próxima semana para compartilhar seus pensamentos com seu grupo.</p>
+        <h4 class="day-title">DIA 6: Participe do Grupo</h4>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 17</h2>
+        <p>Filipenses &ndash; Lição 5 Lição 5 - Comentário Avançando em Direção à Meta Filipenses 3 &ldquo;Alegrem-se no Senhor!&rdquo; Anteriormente em Filipenses, Paulo encorajou os cristãos a se alegrar em certas situações (Filipenses 3:17-18, 28). Aqui, pela primeira vez, Paulo instruiu os cristãos a se alegrarem especificamente no Senhor, e por nenhuma outra razão. Focando apenas em Suas boas dádivas &mdash; saúde, segurança, amor da família e dos amigos &mdash; nos leva a nos relacionar com Deus por causa do que Ele dá, e não por quem Ele é. Quando entregamos totalmente nossas vidas a Deus, descobrimos que a única verdadeira fonte de alegria está no próprio Deus. Paulo sabia que era essencial lembrar os Filipenses para encontrar sua alegria no Senhor.</p>
+        <h4 class="inline-section-title">Aviso Sobre o Ensino Falso</h4>
+        <p>Paulo avisou os Filipenses: cuidado com os falsos professores - cães, praticantes do mal, falsa circuncisão (3:2). Por que &ldquo;cães&rdquo;? Os cães rosnavam, mordiam e espalhavam doenças. Os Judeus frequentemente usavam esse termo desdenhoso para se referir aos gentios. Mas, aqui, &ldquo;cães&rdquo; descreveram professores judeus que exigiam que os gentios fossem circuncidados antes que pudessem ser cristãos. Deus introduziu a circuncisão como um sinal da aliança (Gênesis 17:9-10), não apenas um ritual religioso. Representava a mudança no coração que acontece quando as pessoas genuinamente se voltam a Ele. A Bíblia muitas vezes lembra o povo de Deus da necessidade de ter corações circuncidados (Romanos 2:28-29). Do ponto de vista de Deus, qualquer um que coloque sua fé em Jesus é circuncidado espiritualmente. A verdadeira circuncisão é uma mudança no coração que leva à adoração de Deus e glória a Cristo. O Testemunho de Paulo Embora Paulo estivesse chateado com os judeus que queriam impor tradições judaicas aos cristãos gentios, ele mesmo era um judeu modelo. Ele tinha credenciais excepcionais para os padrões judeus. Ele foi &ldquo;circuncidado no oitavo dia,&rdquo; um rito exigido de todos os homens judeus. Ele era &ldquo;pertencente ao povo de Israel,&rdquo; um descendente de sangue de Abraão, Isaque e Jacó. Ele era da &ldquo;tribo de Benjamim,&rdquo; a tribo judaica que produziu o primeiro rei de Israel, Saul (1 Samuel 9:1-2). Paulo era &ldquo;fariseu,&rdquo; parte de uma seita judaica que era muito devota em guardar as leis de Deus. Ele era fervoroso &mdash; tão fervoroso que, por devoção equivocada, ele realmente perseguiu os cristãos. (Mais tarde, ele se arrependeu de suas ações &mdash; veja 1 Coríntios 15:9.) Paulo até disse que sua manutenção da lei era &ldquo;irrepreensível.&rdquo; Apesar de todas essas vantagens e realizações, Paulo não depositava confiança em si mesmo (Filipenses 3:3). Ele percebeu que era impossível confiar em seus próprios esforços e, ao mesmo tempo, confiar totalmente somente na fé em Cristo para ser íntegro. Incluir qualquer coisa dos esforços do homem ao que a morte e a ressurreição de Cristo fizeram é colocar &ldquo;confiança na carne.&rdquo; Comparado a conhecer a Cristo e ser encontrado nEle, Paulo considerava suas credenciais sem valor.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>tentação de confiar em nós mesmos &mdash; nossas boas obras, antecedentes, intelecto, habilidades ou realizações. Podemos facilmente depositar confiança em nós mesmos, em vez de confiar em Jesus. Deus nos dá dons, mas confiar neles para nos corrigir com Deus não tem valor algum. Qualquer coisa em que depositamos nossa confiança, além de em Cristo, deve ser descartada &mdash; jogada fora como lixo.</p>
+        <h4 class="inline-section-title">O Objetivo de Paulo</h4>
+        <p>Paulo declarou que seu propósito de vida era &ldquo;conhecer a Cristo&rdquo; (3:10). A palavra Grega significa mais do que apenas conhecer sobre. Significa saber por experiência própria. Paulo possuía conhecimento mental de quem era Jesus e do que Ele havia feito. Mas seu desejo mais profundo era vivenciar pessoalmente essas verdades. Ele queria conhecer Jesus em um relacionamento pessoal íntimo. Ele queria vivenciar pessoalmente</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 18</h2>
+        <p>Filipenses &ndash; Lição 5 o poder da ressurreição de Cristo. Dessa forma, pelo poder do Espírito Santo, ele poderia ter vitória sobre o pecado e se tornar mais próximo de Jesus. Ele até queria participar de Seu sofrimento pela Sua glória. Paulo prosseguiu em direção ao seu objetivo de conhecer a Cristo. Ele confessou que ainda não havia conseguido. O fato de nem mesmo Paulo ter chegado à perfeição espiritual pode nos encorajar. A Palavra de Deus ensina que não alcançaremos a perfeição até vermos Jesus cara a cara. Paulo, como todos os Cristãos, estava neste processo. Um segredo para o progresso de Paulo era sua recusa em olhar para trás. Se Paulo tivesse escolhido se concentrar em suas realizações espirituais ou em sua perseguição maliciosa passada aos cristãos, ele não teria sido capaz de conhecer a Cristo da maneira que desejava conhecê-Lo. Ele teve que aceitar o perdão de Deus antes que pudesse seguir em frente. Outro segredo para o progresso de Paulo foi seu intenso foco no &ldquo;que estão adiante&rdquo; (3:13). Deus chamou Paulo de &ldquo;em Cristo Jesus.&rdquo; Paulo queria conhecer Cristo. Como o próprio Jesus, Paulo correu a corrida &ldquo;pela alegria que lhe fora proposta&rdquo; (Hebreus 12:2). Nenhuma tensão ou esforço foi demais, em comparação com a alegria de ganhar o prêmio. Paulo pediu aos seus leitores a se juntarem a ele nesta maneira de pensar e viver. Ele tinha confiança de que Deus lhes revelaria a verdade. Enquanto isso, ele os encorajou a continuar a viver a verdade espiritual que eles já conheciam. &ldquo;Sigam unidos o meu exemplo,&rdquo; Paulo aconselhou aos filipenses (Filipenses 3:17). Ele provavelmente quis dizer que eles deveriam imitar seu compromisso com Cristo, não necessariamente todos os detalhes de sua vida. Os filipenses não teriam o benefício de ver Jesus ou ouvir todos os ensinamentos dos apóstolos. Eles não teriam sua própria cópia da Bíblia. Então Paulo ofereceu sua própria vida como um exemplo para eles seguirem. Quando Paulo convidou os filipenses a imitá-lo, ele também os pediu que não imitassem aqueles que eram os &ldquo;inimigos da cruz de Cristo&rdquo; (3:18). Embora ele os descreveu em termos duros, ele escreveu sobre eles através de suas lágrimas.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>a emoção de Paulo ao descrever aqueles que eram &ldquo;inimigos da cruz de Cristo.&rdquo; Ele estava em lágrimas enquanto escrevia sobre eles para seus amigos filipenses. Ele poderia estar pensando em suas próprias escolhas anteriores que o tornaram um inimigo de Cristo? Ele entendeu o quão longe de Cristo essas pessoas estavam. A menos que eles se entregassem a Jesus, ele sabia a destruição que seria o fim deles. E esse conhecimento despertou profunda emoção em Paulo. Quando você pensa sobre os inimigos de Cristo que você conhece, como seu coração responde?</p>
+        <p>Esses inimigos de Cristo não estavam focados em conhecer a Cristo e as alegrias do céu. Seus objetivos eram prazeres da terra e satisfazer seus próprios desejos. Paulo deixou claro que o fim de tais pessoas é a destruição. Mas o futuro é muito diferente para aqueles cujo objetivo é conhecer a Cristo. A cidadania deles está no céu. Eles esperam o retorno do Senhor Jesus Cristo quando Ele irá governar sobre tudo.</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>Paulo visualizou sua vida em Cristo como uma corrida em direção a um prêmio. Ele usou palavras como prosseguir e avançando adiante. A corrida exigiu determinação e intenção. Ele se concentrou em duas estratégias para a corrida: &ldquo;esquecendo-me das coisas que ficaram para trás e avançando para as que estão adiante.&rdquo; Ele teve que abandonar as conquistas e fracassos do passado. Ele teve que focar sua atenção na meta de Jesus e sua cidadania no céu. Nós corremos a mesma corrida. Vivemos na mesma tensão. Quem éramos e o que fizemos está no passado. Com esperança em Cristo, vivemos intencionalmente para desenvolver nosso relacionamento com Deus e viver Seus propósitos para nós. O que dificulta a sua corrida da fé? Dê essas coisas a Deus. Dê a Ele seus pecados e fracassos. Dê a Ele as distrações que tiram seu foco de Jesus. Peça a Ele que lhe dê uma devoção de mente única para que você possa correr a corrida e vencer!</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 19</h2>
+        <p>ESTUDOS BÍBLICOS EM COMUNIDADE</p>
+<p>Filipenses Lição 6&mdash;Filipenses 4 Paz e Contentamento</p>
+        <h4 class="memory-title">Memorize a VERDADE!</h4>
+        <p>&ldquo;Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, e com ação de graças, apresentem seus pedidos a Deus.&rdquo; Filipenses 4:6</p>
+        <h4 class="day-title">DIA 1: Filipenses 4:1-3 &mdash; Apelo pela Paz Entre os Cristãos</h4>
+        <p class="question">1. A partir dos versículos 2 e 3, o que você aprende sobre Evódia e Síntique? O que Paulo queria que elas fizessem?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">2. Por que você acha que Evódia e Síntique podem ter sido incapazes de se reconciliar por conta própria?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">3. Como um mediador, como o &ldquo;leal companheiro,&rdquo; de Paulo, poderia ajudar?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Aprenda a VERDADE!</h4>
+        <p>Paulo queria muito a unidade na igreja Filipense. Ele implorou a Evódia e Síntaque que concordassem no Senhor. Você tem alguma relação que precise ser reconciliada? Peça a Deus que lhe dê orientação e humildade. Espere nEle para lhe dar Sua sabedoria e compreensão sobre como reconciliar a relação. Então, tome os passos que Ele lhe mostrar. Sem mencionar detalhes específicos, compartilhe sua experiência em seu grupo.</p>
+        <h4 class="day-title">DIA 2: Filipenses 4:4-7 &mdash; Orar Resulta em Paz</h4>
+        <p class="question">4. O que você acha que Paulo quis dizer com &ldquo;Seja a amabilidade de vocês conhecida por todos&rdquo;?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">5. O que &ldquo;Perto está o Senhor&rdquo; significa para você, e que diferença faz saber disto?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">6. Que medidas Paulo nos encorajou a tomar quando sentimos ansiedade e preocupação?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">7. Você já seguiu as instruções de Paulo no versículo 6? Se sim, como a oração levou à paz inexplicável de Deus?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="page-footer">Copyright &copy; 2019 &bull; Todos os direitos reservados &bull; www.communitybiblestudy.org &bull; Rev 08-2023</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 20</h2>
+        <p>Filipenses &ndash; Lição 6</p>
+        <h4 class="day-title">DIA 3: Filipenses 4:8-9 &mdash; Pense Sobre Essas Coisas e as Pratique</h4>
+        <p class="question">8. Sobre que Paulo ordenou os filipenses a pensar no versículo 8?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">9. Por que acha que Paulo estava tão preocupado com nossos pensamentos?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">10. De seu estudo em Filipenses, onde você viu Paulo praticar o tipo de pensamento que ele nos encoraja a ter?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 4: Filipenses 4:10-13 &mdash; O Segredo do Contentamento</h4>
+        <p class="question">11. No versículo 12, quais circunstâncias Paulo vivenciou em sua vida?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">12. O que Paulo &ldquo;aprendeu&rdquo; a ser? O que a palavra &ldquo;aprendeu&rdquo; sugere para você?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">13. Você já sentiu Deus te fortalecendo para fazer algo realmente difícil? Explique.</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="day-title">DIA 5: Filipenses 4:14-23 &mdash; Paulo Expressou Gratidão</h4>
+        <p class="question">14. Como os filipenses ajudaram Paulo?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">15. Do versículo 17, qual era o desejo de Paulo por eles ao compartilharem doações financeiras?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <p class="question">16. O que Paulo declarou aos filipenses no versículo 19?</p>
+        <div class="answer-space" aria-hidden="true"></div>
+        <h4 class="focus-title">Pratique a VERDADE!</h4>
+        <p>Os filipenses entraram em parceria com Paulo quando o apoiaram com doações materiais. Sua oferta era agradável a Deus. E, embora também fosse um sacrifício, Paulo assegurou-lhes que Deus supriria todas as suas necessidades. Deus está chamando você para apoiar um de Seus servos? Sua doação será uma oferta perfumada a Deus, e Ele também atenderá às suas necessidades. Discretamente, compartilhe sobre sua experiência.</p>
+        <h4 class="day-title">DIA 6: Participe do Grupo</h4>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 21</h2>
+        <p>Filipenses &ndash; Lição 6 Lição 6 - Comentário Paz e Contentamento Filipenses 4 Paulo parece quase paternal quando conclui sua carta aos seus queridos amigos em Filipos. Seu carinho por eles era óbvio. Claramente, ele queria que eles vivenciassem as maravilhosas bênçãos de Deus de paz, alegria, união e contentamento. Consequentemente, ele ofereceu mais conselhos em várias áreas. Ele pediu que se dessem bem um com o outro. Ele os encorajou a deixar de lado pensamentos ansiosos e negativos. Em vez disso, ele queria que eles pensassem sobre o que é digno de louvor, e que orassem, se alegrassem e fossem gratos no Senhor. Ele afirmou a sua generosidade, e assegurou-lhes que Deus iria atender à todas as suas necessidades. Então ele assegurou-lhes que estava bem provido e que havia aprendido a se contentar com toda e qualquer situação. Que encorajamento Paulo deve ter sido para esta jovem igreja.</p>
+        <h4 class="inline-section-title">Um Apelo Pela União</h4>
+        <p>Duas companheiras de trabalho, Evódia e Síntique, estavam envolvidas em um desacordo. Mesmo de tão longe como era Roma, Paulo tinha ouvido falar sobre o conflito entre as duas mulheres, e isso o perturbava. Como um pai, ele queria ver seus filhos espirituais se darem bem. Além disso, o conflito entre cristãos enfraquece o testemunho da igreja para o mundo. Então Paulo implorou às mulheres para resolverem isso. E ele também pediu à igreja para ajudá-las a se reconciliar.</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>os papéis dos cristãos como pacificadores. Manter a união na igreja é responsabilidade de todos. Não só devemos ser rápidos para resolver nossos próprios conflitos, Deus também nos chama para cuidar uns dos outros. Em vez de fazer parte do problema, devemos procurar fazer parte da solução. Às vezes, duas partes envolvidas em conflitos precisam da ajuda de outro cristão para chegar a um acordo. Deus nos pede para nos ajudarmos uns aos outros desta forma. Jesus disse que os pacificadores são abençoados (Mateus 5:9), e em outra de suas cartas, Paulo explica que Deus &ldquo;nos deu o ministério da reconciliação&rdquo; (2 Coríntios 5:18). Ajudar os outros a se reconciliarem resulta em uma igreja forte &mdash; interiormente, bem como aos olhos do mundo.</p>
+        <p>? importante notar que Evódia e Síntique (juntamente com muitas outras mulheres) foram totalmente aceitas como companheiras de trabalho na igreja. Paulo escreve sobre Lídia em Filipos (Atos 16:14-15), muitas mulheres de importante liderança em Tessalônica (Atos 17:4), muitas mulheres Gregas em Beréia (Atos 17:12), Priscila em Corinto (Atos 18:2, 18; Romanos 16:3), a diácona Febe em Roma (Romanos 16:1), e Evódia e Síntique em Filipos (4:2-3).</p>
+        <h4 class="inline-section-title">Atitudes e Pensamentos Piedosos</h4>
+        <p>No versículo 4, Paulo retomou seu tema de alegria. Ele pediu &mdash; duas vezes &mdash; que os cristãos se alegrassem no Senhor. Então, ele se voltou para uma discussão sobre atitudes cristãs. Os cristãos devem ser gentis e amáveis e não precisam ficar ansiosos. Eles devem ser fervorosos e gratos. Ao viverem dessa maneira, que é tão contrária à maneira como a maioria das pessoas vive, eles vão experenciar a paz sobrenatural de Deus, mesmo quando a vida é difícil. A palavra Grega traduzida como &ldquo;amabilidade&rdquo; no versículo 5 também pode ser traduzida de outras maneiras. Pode se referir ao ato de ser gentil, humilde, justo ou tolerante. Todos estes são atributos de Jesus. Quando os cristãos agem de maneira gentil e amável, será evidente para os outros. Como os cristãos podem exibir essa atitude gentil e amável? No versículo 5, Paulo lembrou aos filipenses que a presença do Senhor estava próxima. Eles não foram deixados sozinhos para lidar com seus desafios. Assim, em vez de estarem perturbados pelo medo, ansiedade e preocupação, os cristãos poderiam orar. Eles poderiam escolher clamar a Deus por seus problemas. Quando damos a Deus nossas preocupações, não precisamos mais tentar controlar os resultados. Podemos confiar em Deus para trabalhar o que é melhor. Podemos descansar, e até ser gratos, sabendo que Ele está trabalhando amorosamente em nossas circunstâncias. Quando confiamos nEle dessa forma, Deus promete que Sua paz guardará nossos corações e mentes em Jesus Cristo.</p>
+      </section>
+      <section class="page">
+        <h2>P&aacute;gina 22</h2>
+        <p>Filipenses &ndash; Lição 6</p>
+        <h4 class="focus-title">Pense nisto...</h4>
+        <p>o uso de Paulo da palavra &ldquo;guardar.&rdquo; Ele descreveu a paz de Deus guardando nossos corações e mentes. Por causa de sua experiência na prisão, ele sabia o que significava estar sob o olhar atento de alguém. Todo o tempo &mdash; dia e noite &mdash; alguém o estava guardando. Que bela imagem da paz de Deus nos mantendo. Quando somos perseguidos, tentados, perturbados, ansiosos, assustados, Deus está perto. Ele está pronto para ouvir nossas orações e nos vigiar e nos guardar com Sua paz.</p>
+        <p>Deus oferece esta paz incrível. Nós cooperamos com Ele não apenas orando com gratidão, mas também desenvolvendo um pensamento saudável. No versículo 8, Paulo disse que os cristãos devem intencionalmente direcionar seus pensamentos no que é bom e correto. Especificamente, ele os aconselhou a pensar deliberadamente sobre o que é verdadeiro, nobre, correto, puro, amável, de boa fama, excelente e digno de louvor. Sua vida demonstrou que ele havia sido treinado para pensar dessa maneira, então ele encorajou outros a fazerem o mesmo, dizendo, &ldquo;Tudo o que vocês aprenderam, receberam, ouviram e viram em mim, ponham-no em prática&rdquo; (4:9).</p>
+        <h4 class="inline-section-title">A Provisão de Deus</h4>
+        <p>As atitudes e pensamentos piedosos que Paulo demonstrou e pediu seus amigos a imitar tiveram resultados claramente benéficos: contentamento. Mas Paulo confessou que ele teve que &ldquo;aprender&rdquo; a se contentar. Não veio a ele facilmente ou automaticamente. Envolvia disciplina &mdash; provavelmente em fazer as coisas sobre as quais ele já havia escrito &mdash; ser fervoroso e grato, e direcionar seus pensamentos no que é bom e correto. Mesmo quando ele era pobre e faminto, ele era capaz de ser grato e contente. Isso porque, em qualquer situação em que Paulo se encontrava, ele confiava que Jesus era o suficiente para ele. Por causa de Cristo, Paulo disse &ldquo;tudo posso naquele que me fortalece&rdquo; (4:13). As palavras encorajadoras de Paulo neste capítulo deram a inúmeros cristãos esperança em tempos difíceis. Jesus realmente é suficiente. Nós realmente podemos estar contentes, agradecidos e alegres em qualquer situação quando acreditamos que Ele nos fortalecerá. Ao concluir sua carta, Paulo agradeceu aos filipenses por ajudá-lo com suas necessidades financeiras. Eles foram a única igreja a apoiá-lo dessa forma, e isso obviamente significava muito para Paulo. Não foi o apoio em si que deu tanta alegria à Paulo. Foi que, aos olhos de Deus, eles estavam dando a Ele. Eles receberiam &ldquo;ofertas, mas o que pode ser creditado na conta de vocês&rdquo; (4:17). Seus presentes a Paulo eram &ldquo;uma oferta de aroma suave, um sacrifício aceitável e agradável a Deus&rdquo; (4:18). Talvez sua doação tivesse sido sacrificante e os tivesse deixado preocupados sobre como cuidariam de suas próprias necessidades. Mas Paulo assegurou-lhes que Deus &ldquo;suprirá todas as necessidades de vocês, de acordo com as suas gloriosas riquezas em Cristo Jesus&rdquo; (4:19). Paulo terminou sua carta com louvor a Deus, saudações aos santos e uma bênção calorosa. Ele pediu a Deus que deixasse &ldquo;a graça do Senhor Jesus Cristo seja com o espírito de vocês&rdquo; (4:23).</p>
+        <h4 class="focus-title">Personalize a VERDADE!</h4>
+        <p>No capítulo 2, Paulo encorajou os filipenses a terem a mente de Cristo &mdash; para fazer das atitudes de Cristo as nossas próprias. Em 4:8, ele oferece uma maneira específica de fazer isso. Paulo diz para intencionalmente dedicar tempo para refletir sobre o que é verdadeiro, nobre, correto, puro, amável, de boa fama, excelente e digno de louvor. O que aconteceria se você tirasse um tempo todos os dias para refletir sobre onde você viu essas qualidades? Por que não tentar? Talvez você possa escrevê-los. Ou você pode querer compartilhá-los com um amigo ou membro da família. Inclua a bondade que você percebe em outras pessoas, a amabilidade que você vê na criação de Deus, as decisões justas que estão sendo tomadas no mundo ao seu redor. Peça a Deus para transformar seu pensamento para que você veja as coisas com os olhos e a perspectiva de Jesus.</p>
+      </section>
+    </div>
+  </body>
+</html>
+
